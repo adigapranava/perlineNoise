@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <!-- include script.js file -->
+    <title>Graph</title>
+</head>
+<body>
+    <script src="third.js" defer></script>
+    <h3>1D Noise</h3>
+    <a href="OneDNoise.html">prev</a>
+    <br>
+    <code>
+        var offSetX = start;<br>
+        for (let x = 0; x < width; x++) {<br>
+            stroke(255);<br>
+            s = map(cos(offSetX), -1,1, 0, height);<br>
+            n = map(noise(offSetX),0,1, -60,60);<br>
+            y = s + n;<br>
+            vertex(x, y);<br>
+            offSetX += 0.01;<br>
+        }<br>
+        start += 0.01;<br>
+    </code>
+    <br>
+    <a href="TwoDNoise.html">next</a>
+</body>
+</html>

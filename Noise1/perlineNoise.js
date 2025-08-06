@@ -1,8 +1,9 @@
 var inc = 0.01;
 var start = 0;
-var scl = 20;
+var scl = 200;
 var speed = 0.005;
 var start = 0;
+var particle;
 
 function setup() {
     // slider for speed
@@ -41,15 +42,17 @@ function setup() {
     .style('color', '#000000');
     rows = floor(width / scl);
     cols = floor(height / scl);
+
+    particle = new Particle();
 }
 
 function draw() {
     background(220);
     speed = speedSlider.value();
     var yOff = 0;
-    for (let x = 0; x < rows; x++) {
+    for (let x = 0; x < rows+1; x++) {
         var xOff = 0;
-        for (let y = 0; y < cols; y++) {
+        for (let y = 0; y < cols+1; y++) {
             let angle = map(noise(start+xOff, start+yOff), 0, 1, 0, TWO_PI);
             let v = p5.Vector.fromAngle(angle);
             xOff += 0.1;
