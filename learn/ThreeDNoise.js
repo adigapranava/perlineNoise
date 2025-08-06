@@ -37,9 +37,6 @@ function setup() {
     // frameRate(2);
     flowFields = new Array(rows * columns);
     angleMode(DEGREES);
-
-    let saveButton = createButton("Save Image ⬇");
-    saveButton.mousePressed(() => saveCanvas("flowfield", "png"));
 }
 
 function draw(){
@@ -99,4 +96,6 @@ function createParticles() {
   for (let i = 0; i < numOfParticles; i++) {
         particles[i] = new Particle();
     }
+    let saveButton = createButton("Save Image ⬇");
+    saveButton.mousePressed(() => saveCanvas("flowfield", "png"));
 }
