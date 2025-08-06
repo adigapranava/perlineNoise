@@ -46,15 +46,17 @@ function Particle() {
     //     colorMode(HSB, 360, 100, 100, 100);
     //     stroke(hue, 80, 100, 25);
     //     strokeWeight(1);
-    //     point(this.pos.x, this.pos.y);
+    //     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
+    //     this.updatePrev();
     //     pop();
     // }
 
     this.show = function() {
         push();
         let noiseScale = 0.005;
-        let t = frameCount * 0.005;
-        let hue = noise(this.pos.x * noiseScale + t, this.pos.y * noiseScale + t) * 360;
+        let t = frameCount * 0.05;
+        // let hue = noise(this.pos.x * noiseScale + t, this.pos.y * noiseScale + t) * 360;
+        let hue = (sin((noise(this.pos.x * noiseScale + t, this.pos.y * noiseScale + t) * 360)) * 0.5 + 0.5) * 360;
         colorMode(HSB, 360, 100, 100, 100);
         stroke(hue, 60, 100, 8);
         // stroke(0,0,0, 90)

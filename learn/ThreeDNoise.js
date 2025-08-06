@@ -24,6 +24,7 @@ let zSpeedSlider;
 
 function setup() {
     fr = createP();
+    pixelDensity(2)
     createP("Enter number of particles:");
     numInput = createInput();
     numInput.attribute("placeholder", "e.g. 100");
