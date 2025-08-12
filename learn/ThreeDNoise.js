@@ -32,7 +32,7 @@ function setup() {
     submitButton = createButton("Start Simulation");
     submitButton.mousePressed(createParticles);
     zSpeedP = createP();
-    zSpeedSlider = createSlider(0, 1, zSpeed, 0.001); // min, max, initial, step
+    zSpeedSlider = createSlider(0, 100, zSpeed, 0.001); // min, max, initial, step
     zSpeedSlider.style('width', '200px');
 
     // frameRate(2);

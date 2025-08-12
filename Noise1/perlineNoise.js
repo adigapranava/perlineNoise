@@ -1,6 +1,6 @@
 var inc = 0.01;
 var start = 0;
-var scl = 200;
+var scl = 20;
 var speed = 0.005;
 var start = 0;
 var particle;
