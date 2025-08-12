@@ -16,7 +16,7 @@ function setup() {
     col2 = color(173, 255, 47); // bright green
 
     toggleButton = createButton("Toggle Z Offset");
-    toggleButton.parent('canvas-container'); // stays in container, below canvas
+    toggleButton.parent('button-container'); // stays in container, below canvas
     toggleButton.style('background-color', '#0d130dff');
     toggleButton.style('color', 'white');
     toggleButton.style('border', 'none');
@@ -27,12 +27,10 @@ function setup() {
     toggleButton.style('margin-top', '10px'); // spacing below canvas
     toggleButton.mouseOver(() => toggleButton.style('background-color', '#282828ff'));
     toggleButton.mouseOut(() => toggleButton.style('background-color', '#0d130dff'));
-
-    toggleButton.position(
-        width - 200,
-        height + 130
-    );
-    // positionButtons();
+    // toggleButton.position(
+    //     windowWidth/2,
+    //     windowHeight/2
+    // );
     toggleButton.mousePressed(() => {
         useZOffset = !useZOffset;
         toggleButton.html(useZOffset ? "Move Y Offset" : "Enable Z Offset");
