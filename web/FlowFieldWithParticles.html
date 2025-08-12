@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RandomVsNoise</title>
+    <title>Flow Field With Particles</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="RandomVsNoise.js" defer></script>
+    <script src="FlowFieldWithParticles.js" defer></script>
     <style>
         body {
             display: flex;
@@ -19,7 +19,7 @@
         .button-container {
             margin-top: 20px;
         }
-        button {
+        .redirectButton {
             padding: 10px 20px;
             margin: 0 10px;
             background-color: #4CAF50;
@@ -30,43 +30,32 @@
             font-size: 16px;
             transition: background-color 0.3s;
         }
-        button:hover {
+        .redirectButton:hover {
             background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <h2>Random Vs Noise</h2>
-    <pre><code>
-        noiseX = noise(offset) * width;
-        offset += speed;
-    </code></pre>
+    <h2>FlowField</h2>
+    <pre>
+        <code><b>let angle = map(noise(start + xOff, start + yOff), 0, 1, 0, TWO_PI);</b>
+            let v = p5.Vector.fromAngle(angle);
+        </code>
+    </pre>
     <!-- p5.js will create the canvas here -->
     <div id="canvas-container"></div>
     <div id="slider-container"></div>
     <div class="button-container">
-        <button onclick="window.location.href='index.html'">Back</button>
-        <button onclick="window.location.href='RandomVsNoise2.html'">Next</button>
+        <button class="redirectButton" onclick="window.location.href='FlowField.html'">Back</button>
+        <button class="redirectButton" onclick="window.location.href='nextPage.html'">Next</button>
     </div>
 </body>
 <style>
-canvas {
-  border-radius: 20px;       /* rounded corners */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* soft shadow */
-  border: 2px solid rgba(255, 255, 255, 0.2); /* subtle border */
-  background-color: #1e1e1e; /* fallback background color */
-}
-#slider-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-#noise-info {
-    margin-top: 8px;
-    color: white;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    text-align: center;
-}
+    canvas {
+        border-radius: 20px;       /* rounded corners */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* soft shadow */
+        border: 2px solid rgba(255, 255, 255, 0.2); /* subtle border */
+        background-color: #1e1e1e; /* fallback background color */
+    }
 </style>
 </html>
