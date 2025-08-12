@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1D Noise Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="RandomVsNoise.js" defer></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Random Vs Noise</h2>
+    <pre><code>
+        noiseX = noise(offset) * width;
+        offset += speed;
+    </code></pre>
+    <!-- p5.js will create the canvas here -->
+    <div id="canvas-container"></div>
+    <div id="slider-container"></div>
+    <div class="button-container">
+        <button onclick="window.location.href='index.html'">Back to Home</button>
+        <button onclick="window.location.href='nextPage.html'">Next</button>
+    </div>
+</body>
+<style>
+canvas {
+  border-radius: 20px;       /* rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* soft shadow */
+  border: 2px solid rgba(255, 255, 255, 0.2); /* subtle border */
+  background-color: #1e1e1e; /* fallback background color */
+}
+#slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#noise-info {
+    margin-top: 8px;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+}
+</style>
+</html>
