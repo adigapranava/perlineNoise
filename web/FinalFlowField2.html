@@ -59,32 +59,32 @@
         background-color: #1e1e1e; /* fallback background color */
     }
 
-    #slider-container button {
-  background-color: #040505; /* green shade */
-  border: none;
-  color: white;
-  padding: 8px 16px;
-  margin-left: 8px;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-#slider-container button:hover {
-  background-color: #373939; /* darker green on hover */
-}
 
-#slider-container button:active {
-  background-color: #272928; /* even darker on click */
-}
+    #controls-container button {     
+        position: relative;   
+        background-color: #4B6CB7; /* modern blue-tone background */
+        border: none;
+        color: white;
+        padding: 10px 22px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(75, 108, 183, 0.4);
+    }
 
-#slider-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-}
+    #controls-container button:hover {
+        background-color: #35568E; /* darker blue on hover */
+        box-shadow: 0 6px 20px rgba(53, 86, 142, 0.6);
+    }
+
+    #controls-container button:active {
+        background-color: #2C4870; /* even darker on click */
+        box-shadow: 0 2px 8px rgba(44, 72, 112, 0.7);
+        transform: translateY(-45%);
+    }
+
 
 </style>
 </html>

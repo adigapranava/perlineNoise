@@ -49,7 +49,6 @@ function setup() {
 
   changePaletteButton = createButton('Change Color Palette');
   changePaletteButton.parent('controls-container');
-  changePaletteButton.position(10, height + 10);
   changePaletteButton.mousePressed(changePalette);
 }
 
@@ -106,8 +105,8 @@ function Particle(x, y) {
 
   this.move = function() {
     var angle = noise(this.pos.x / noiseScale, this.pos.y / noiseScale) * TWO_PI * noiseScale;
-    this.dir.x = -cos(angle);
-    this.dir.y = -sin(angle);
+    this.dir.x = cos(angle);
+    this.dir.y = sin(angle);
     this.vel = this.dir.copy();
     this.vel.mult(this.speed);
     this.pos.add(this.vel);
