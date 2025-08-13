@@ -1,9 +1,10 @@
 let inc = 0.1;
 let start = 0;
 let scl = 20;
-let speed = 0.005;
+let speed = 0.001;
 let speedSlider;
 let opacity = 80;
+let zOff = 0;
 
 // let rows, cols;
 let rows = 900 / scl;
@@ -27,10 +28,11 @@ function setup() {
     speedSlider.attribute('title', 'Speed');
 
     // Add buttons below slider
-    toggleButton = createButton('Toggle Mode');
+    toggleButton = createButton('Random');
     toggleButton.parent('slider-container');
     toggleButton.mousePressed(() => {
         useNoise = !useNoise;
+        toggleButton.html(useNoise ? 'Random': 'Noise');
     });
 
     pauseButton = createButton('Pause');
@@ -57,18 +59,19 @@ function draw() {
 
     if (!isPaused) {
         if (useNoise) {
-            // Generate flow field vectors using Perlin noise for entire canvas
+            // Generate flow field vectors using 3D Perlin noise for entire canvas
             let yOff = 0;
             for (let y = 0; y < cols; y++) {
                 let xOff = 0;
                 for (let x = 0; x < rows; x++) {
-                    let angle = map(noise(start + xOff, start + yOff), 0, 1, 0, TWO_PI);
+                    let angle = map(noise(xOff, yOff, zOff), 0, 1, 0, TWO_PI);
                     let v = p5.Vector.fromAngle(angle);
                     flowfield[x + y * rows] = v;
                     xOff += inc;
                 }
                 yOff += inc;
             }
+            zOff += speed; // advance through 3rd dimension (time)
         } else {
             // Generate flow field vectors randomly for entire canvas
             for (let y = 0; y < cols; y++) {
@@ -78,8 +81,8 @@ function draw() {
                 }
             }
         }
-        start += speed;
     }
+
 
     // Draw arrows for the entire canvas based on current flowfield
     for (let y = 0; y < cols + 1; y++) {
@@ -89,12 +92,12 @@ function draw() {
             push();
             translate(x * scl, y * scl);
             rotate(v.heading());
-            stroke(useNoise ? color(173, 255, 47, opacity) : color(255, 165, 0, opacity));
+            stroke(useNoise ? color(47, 100, 173, opacity) : color(173, 100, 47, opacity));
             strokeWeight(1);
             line(0, 0, scl - 4, 0);
             translate(scl - 4, 0);
             let arrowSize = 4;
-            fill(useNoise ? color(173, 255, 47, opacity) : color(255, 165, 0, opacity));
+            fill(useNoise ? color(47, 100, 173, opacity) : color(173, 100, 47, opacity));
             triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
             pop();
         }
