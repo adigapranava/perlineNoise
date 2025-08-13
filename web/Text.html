@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flow Field With Particles</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="FinalFlowField2.js" defer></script>
+    <script src="Text.js" defer></script>
     <!-- <script src="Particles/partical.js" defer></script> -->
     <style>
         body {
@@ -37,18 +37,16 @@
     </style>
 </head>
 <body>
-    <h2>Flow Field With Particles</h2>
+    <h2>Text Animations</h2>
     <pre>
-        <code>
-            Enter number of Particles and see the beautiful flow fields
-        </code>
+    Get your name animated 
     </pre>
     <!-- p5.js will create the canvas here -->
     <div id="canvas-container"></div>
     <div id="controls-container"></div>
     <div class="button-container">
-        <button class="redirectButton" onclick="window.location.href='FinalFlowField.html'">Back</button>
-        <button class="redirectButton" onclick="window.location.href='Text.html'">Next</button>
+        <button class="redirectButton" onclick="window.location.href='FinalFlowField2.html'">Back</button>
+        <button class="redirectButton" onclick="window.location.href='nextPage.html'">Next</button>
     </div>
 </body>
 <style>
@@ -58,33 +56,6 @@
         border: 2px solid rgba(255, 255, 255, 0.2); /* subtle border */
         background-color: #1e1e1e; /* fallback background color */
     }
-
-
-
-    #controls-container button {     
-        position: relative;   
-        background-color: #4B6CB7; /* modern blue-tone background */
-        border: none;
-        color: white;
-        padding: 10px 22px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 600;
-        box-shadow: 0 4px 12px rgba(75, 108, 183, 0.4);
-    }
-
-    #controls-container button:hover {
-        background-color: #35568E; /* darker blue on hover */
-        box-shadow: 0 6px 20px rgba(53, 86, 142, 0.6);
-    }
-
-    #controls-container button:active {
-        background-color: #2C4870; /* even darker on click */
-        box-shadow: 0 2px 8px rgba(44, 72, 112, 0.7);
-        transform: translateY(-45%);
-    }
-
 
 </style>
 </html>
