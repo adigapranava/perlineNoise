@@ -1,5 +1,5 @@
 let font;
-let word = "Noicee.";
+let word = "Noicee";
 let letterSpacing = 10;
 let fontSize = 200;
 let lettersPoints = [];
@@ -10,11 +10,17 @@ function preload() {
 }
 
 function setup() {
-  let cnv = createCanvas(900, 500);
+  let cnv = createCanvas(1200, 500);
   cnv.parent('canvas-container');
   colorMode(HSB, 360, 100, 100, 100);
   noFill();
 
+  prepareText();
+  startTime = millis(); // Record start time
+}
+
+function prepareText() {
+  lettersPoints = []; // reset
   let totalWidth = 0;
   for (let i = 0; i < word.length; i++) {
     let bounds = font.textBounds(word[i], 0, 0, fontSize);
@@ -33,8 +39,6 @@ function setup() {
     let bounds = font.textBounds(word[i], 0, 0, fontSize);
     currentX += bounds.w + letterSpacing;
   }
-
-  startTime = millis(); // Record start time
 }
 
 function draw() {
@@ -44,7 +48,6 @@ function draw() {
   let timeScale = 0.01;
   let amp = 20;
 
-  // Determine how many letters to show
   let elapsedSec = floor((millis() - startTime) / 1000);
   let lettersToShow = constrain(elapsedSec + 1, 0, word.length);
 
@@ -60,6 +63,7 @@ function draw() {
     stroke(hueVal, 80, 100, 100);
     strokeWeight(2);
     drawLetter(lettersPoints[i], noiseScale, timeScale, amp);
+
   }
 }
 
@@ -73,4 +77,14 @@ function drawLetter(points, noiseScale, timeScale, amp) {
     vertex(pt.x + xOff, pt.y + yOff);
   }
   endShape(CLOSE);
+}
+
+// Function to update the animated text
+function updateName() {
+  let inputVal = document.getElementById("nameInput").value.trim();
+  if (inputVal) {
+    word = inputVal;
+    startTime = millis(); // reset animation timing
+    prepareText();
+  }
 }

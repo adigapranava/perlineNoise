@@ -43,11 +43,25 @@
     </pre>
     <!-- p5.js will create the canvas here -->
     <div id="canvas-container"></div>
-    <div id="controls-container"></div>
+    <div id="controls-container">
+        <div style="margin-bottom: 15px;">
+        <input 
+            type="text" 
+            id="nameInput" 
+            placeholder="Enter your name" 
+            style="padding: 8px; font-size: 16px; width: 250px; border-radius: 5px; border: 1px solid #ccc;"
+        >
+        <button 
+            class="redirectButton" 
+            onclick="updateName()"
+        >Set Text</button>
+    </div>
+    </div>
     <div class="button-container">
         <button class="redirectButton" onclick="window.location.href='FinalFlowField2.html'">Back</button>
         <button class="redirectButton" onclick="window.location.href='nextPage.html'">Next</button>
     </div>
+    
 </body>
 <style>
     canvas {
@@ -56,6 +70,18 @@
         border: 2px solid rgba(255, 255, 255, 0.2); /* subtle border */
         background-color: #1e1e1e; /* fallback background color */
     }
-
+    /* New style for the input box */
+    #nameInput {
+        padding: 8px 12px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        outline: none;
+        margin-right: 10px;
+    }
+    #nameInput:focus {
+        border-color: #4CAF50;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
 </style>
 </html>
